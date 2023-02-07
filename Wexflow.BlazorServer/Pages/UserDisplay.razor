@@ -1,0 +1,22 @@
+﻿@inject Wexflow.BlazorServer.Controllers.UserController userController
+
+<AuthorizeView>
+    <Authorized>
+        @context.User.Identity.Name <a href="#" @onclick="Logout">Logout</a>
+    </Authorized>
+    <NotAuthorized>
+        <a href="#" @onclick="Login">Login</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code{
+    void Logout()
+    {
+        userController.Logout();
+    }
+
+    void Login()
+    {
+        userController.Login();
+    }
+}

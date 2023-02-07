@@ -1,0 +1,58 @@
+﻿@page "/wexflow/dashboard"
+
+<h3>DashBoard</h3>
+
+<div id="status">
+    <Row Gutter="16">
+        <Col Span="3">
+        <Badge Count="FlowExecCodes.Pending" ShowZero>
+            <Image Src="images/pending.png" Alt="Pending" Preview=false></Image>
+        </Badge>
+        </Col>
+        <Col Span="3">
+        <Badge Count="FlowExecCodes.Running" ShowZero>
+            <Image Src="images/running.png" Alt="running" Preview=false></Image>
+        </Badge>
+        </Col>
+        <Col Span="3">
+        <Badge Count="FlowExecCodes.Done" ShowZero>
+            <Image Src="images/Done.png" Alt="Done" Preview=false></Image>
+        </Badge>
+        </Col>
+        <Col Span="3">
+        <Badge Count="FlowExecCodes.Failed" ShowZero>
+            <Image Src="images/Failed.png" Alt="Failed" Preview=false></Image>
+        </Badge>
+        </Col>
+        <Col Span="3">
+        <Badge Count="FlowExecCodes.Warning" ShowZero>
+            <Image Src="images/Warning.png" Alt="Warning" Preview=false></Image>
+        </Badge>
+        </Col>
+        <Col Span="3">
+        <Badge Count="FlowExecCodes.Rejected" ShowZero>
+            <Image Src="images/Rejected.png" Alt="Rejected" Preview=false></Image>
+        </Badge>
+        </Col>
+        <Col Span="3">
+        <Badge Count="FlowExecCodes.Stopped" ShowZero>
+            <Image Src="images/Stopped.png" Alt="Stopped" Preview=false></Image>
+        </Badge>
+        </Col>
+    </Row>
+</div>
+<br />
+<hr />
+
+<Table TItem="Data.Entry" DataSource="EntryList" OnRowClick="ShowLog">
+    <PropertyColumn Property="c => c.Status"></PropertyColumn>
+    <PropertyColumn Property="c => c.StatusDate"></PropertyColumn>
+    <PropertyColumn Property="c => c.Id"></PropertyColumn>
+    <PropertyColumn Property="c => c.Name"></PropertyColumn>
+    <PropertyColumn Property="c => c.LaunchType"></PropertyColumn>
+    <PropertyColumn Property="c => c.Description"></PropertyColumn>
+</Table>
+
+<Modal Title="执行日志" Visible="@_visible" Width="700" Centered=true OnOk="ClearContent" OnCancel="ClearContent">
+    @(new MarkupString(_logDetail));
+</Modal>

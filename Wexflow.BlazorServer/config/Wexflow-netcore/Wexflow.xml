@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Wexflow>
+  <Setting name="workflowsFolder" value=".//config//Wexflow-netcore//Workflows" />
+  <Setting name="recordsFolder" value=".//config//Wexflow-netcore//Records" />
+  <Setting name="recordsHotFolder" value=".//config//Wexflow-netcore//Records\_HotFolder" />
+  <Setting name="tempFolder" value=".//config//Wexflow-netcore//Temp" />
+  <Setting name="tasksFolder" value=".//config//Wexflow-netcore//Tasks" />
+  <Setting name="approvalFolder" value=".//config//Wexflow-netcore//Approval" />
+  <Setting name="xsd" value=".//config//Wexflow-netcore//Workflow.xsd" />
+  <Setting name="tasksNamesFile" value=".//config//Wexflow-netcore//TasksNames.json" />
+  <Setting name="tasksSettingsFile" value=".//config//Wexflow-netcore//TasksSettings.json" />
+  <Setting name="globalVariablesFile" value=".//config//Wexflow-netcore//GlobalVariables.xml" />
+  <!-- SQLite or MongoDB or SQLServer -->
+  <Setting name="dbType" value="SQLite" />
+  <!-- SQLite -->
+  <Setting name="connectionString" value="Data Source=.//config//Wexflow-netcore//Database//Wexflow.sqlite;Version=3;" />
+  <!-- MongoDB -->
+  <!--<Setting name="connectionString" value="Database=wexflow;MongoUrl=mongodb://localhost:27017;EnabledSslProtocols=false;SslProtocols=None" />-->
+  <!-- SQLServer -->
+  <!--<Setting name="connectionString" value="Server=127.0.0.1;User Id=wexflow;Password=pwd;Database=wexflow;" />-->
+</Wexflow>

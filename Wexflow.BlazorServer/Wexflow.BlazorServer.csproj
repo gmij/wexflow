@@ -1,0 +1,372 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\images\da.png" />
+    <None Remove="wwwroot\images\delete.png" />
+    <None Remove="wwwroot\images\disapproved-small.png" />
+    <None Remove="wwwroot\images\disapproved.png" />
+    <None Remove="wwwroot\images\done-small.png" />
+    <None Remove="wwwroot\images\done.png" />
+    <None Remove="wwwroot\images\en.png" />
+    <None Remove="wwwroot\images\failed-small.png" />
+    <None Remove="wwwroot\images\failed.png" />
+    <None Remove="wwwroot\images\fr.png" />
+    <None Remove="wwwroot\images\logo.png" />
+    <None Remove="wwwroot\images\notification-active.png" />
+    <None Remove="wwwroot\images\notification.png" />
+    <None Remove="wwwroot\images\pending-small.png" />
+    <None Remove="wwwroot\images\pending.png" />
+    <None Remove="wwwroot\images\running-small.png" />
+    <None Remove="wwwroot\images\running.png" />
+    <None Remove="wwwroot\images\stopped-small.png" />
+    <None Remove="wwwroot\images\stopped.png" />
+    <None Remove="wwwroot\images\warning-small.png" />
+    <None Remove="wwwroot\images\warning.png" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <PackageReference Include="AntDesign" Version="0.13.3" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Quartz.Serialization.Json" Version="3.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Reference Include="Wexflow.Core">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.Firebird">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.Firebird.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.LiteDB">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.MariaDB">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.MariaDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.MongoDB">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.MongoDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.MySQL">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.MySQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.Oracle">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.PostgreSQL">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.PostgreSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.RavenDB">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.RavenDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.SQLite">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Db.SQLServer">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Db.SQLServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Service.Client">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Service.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Core.Service.Contracts">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Core.Service.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Scripts.Core">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Scripts.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Approval">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Approval.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ApprovalRecordsCreator">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ApprovalRecordsCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ApprovalWorkflowsCreator">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ApprovalWorkflowsCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ApproveRecord">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ApproveRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.CsvToJson">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.CsvToJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.CsvToSql">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.CsvToSql.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.CsvToXml">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.CsvToXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.CsvToYaml">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.CsvToYaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.EnvironmentVariable">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.EnvironmentVariable.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FileContentMatch">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FileContentMatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FileExists">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FileExists.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FileMatch">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FileMatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesConcat">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesConcat.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesCopier">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesCopier.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesDecryptor">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesDecryptor.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesDiff">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesDiff.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesEncryptor">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesEncryptor.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesEqual">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesEqual.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesExist">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesExist.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesInfo">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesJoiner">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesJoiner.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesLoader">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesLoaderEx">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesLoaderEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesMover">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesMover.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesRemover">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesRemover.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesRenamer">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesRenamer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FilesSplitter">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FilesSplitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FileSystemWatcher">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FileSystemWatcher.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.FolderExists">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.FolderExists.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Ftp">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Ftp.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Guid">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Guid.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Http">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.HttpDelete">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.HttpDelete.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.HttpGet">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.HttpGet.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.HttpPatch">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.HttpPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.HttpPost">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.HttpPost.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.HttpPut">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.HttpPut.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ImagesConcat">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ImagesConcat.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ImagesCropper">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ImagesCropper.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ImagesOverlay">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ImagesOverlay.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ImagesResizer">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ImagesResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ImagesTransformer">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ImagesTransformer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.InstagramUploadImage">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.InstagramUploadImage.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.InstagramUploadVideo">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.InstagramUploadVideo.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.JsonToYaml">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.JsonToYaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ListEntities">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ListEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ListFiles">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ListFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.MailsReceiver">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.MailsReceiver.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.MailsSender">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.MailsSender.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Md5">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Md5.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.MessageCorrect">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.MessageCorrect.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Mkdir">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Mkdir.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Movedir">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Movedir.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Now">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Now.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Ping">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ProcessInfo">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ProcessInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ProcessLauncher">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ProcessLauncher.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Rmdir">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Rmdir.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.ScssToCss">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.ScssToCss.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Sha1">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Sha1.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Sha256">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Sha256.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Sha512">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Sha512.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Slack">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Slack.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Sql">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.SqlToCsv">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.SqlToCsv.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.SqlToXml">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.SqlToXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.SshCmd">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.SshCmd.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.SubWorkflow">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.SubWorkflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Tar">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Tar.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Template">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Template.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.TextsDecryptor">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.TextsDecryptor.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.TextsEncryptor">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.TextsEncryptor.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Tgz">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Tgz.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Torrent">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Torrent.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Touch">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Twilio">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Twitter">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.UglifyCss">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.UglifyCss.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.UglifyHtml">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.UglifyHtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.UglifyJs">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.UglifyJs.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Untar">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Untar.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Untgz">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Untgz.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Unzip">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Unzip.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Vimeo">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Vimeo.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.VimeoListUploads">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.VimeoListUploads.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Wait">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Wait.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.XmlToCsv">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.XmlToCsv.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Xslt">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Xslt.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.YamlToJson">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.YamlToJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Wexflow.Tasks.Zip">
+      <HintPath>..\libs\Debug\net7.0\Wexflow.Tasks.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

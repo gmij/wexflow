@@ -1,0 +1,14 @@
+﻿@page "/wexflow/history"
+
+<Table TItem="Data.HistoryEntry" DataSource="EntryList" OnRowClick="ShowHisLog">
+    <PropertyColumn Property="c => c.Status"></PropertyColumn>
+    <PropertyColumn Property="c => c.StatusDate"></PropertyColumn>
+    <PropertyColumn Property="c => c.Id"></PropertyColumn>
+    <PropertyColumn Property="c => c.Name"></PropertyColumn>
+    <PropertyColumn Property="c => c.LaunchType"></PropertyColumn>
+    <PropertyColumn Property="c => c.Description"></PropertyColumn>
+</Table>
+
+<Modal Title="执行日志" Visible="@_visible" Width="700" Centered=true OnOk="ClearContent" OnCancel="ClearContent">
+    @(new MarkupString(_logDetail));
+</Modal>

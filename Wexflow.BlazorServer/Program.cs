@@ -9,7 +9,7 @@ using System.Xml;
 using Wexflow.BlazorServer.Authentication;
 using Wexflow.BlazorServer.Controllers;
 using Wexflow.BlazorServer.Data;
-using Wexflow.BlazorServer.Middleware;
+using Wexflow.BlazorServer.Helper;
 
 namespace Wexflow.BlazorServer
 {
@@ -46,14 +46,19 @@ namespace Wexflow.BlazorServer
             builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
 
             builder.Services.AddServerSideBlazor();
+
+
+            builder.Services.AddScoped<NotifyHelper>();
+
             builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddSingleton<WexflowService>();
             builder.Services.AddScoped<DashboardController>();
             builder.Services.AddScoped<HistoryController>();
             builder.Services.AddScoped<ManagerController>();
+            builder.Services.AddScoped<EntryController>();
 
             builder.Services.AddScoped<UserController>();
-            
+
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

@@ -1,0 +1,16 @@
+﻿@page "/wexflow/Job"
+
+
+
+<Table TItem="Data.Entry" DataSource="@entryList" Loading="@loading">
+    <PropertyColumn Property="c => c.Id"></PropertyColumn>
+    <PropertyColumn Property="c => c.StatusDate"></PropertyColumn>
+    <PropertyColumn Property="c => c.Name"></PropertyColumn>
+    <PropertyColumn Property="c => c.Description"></PropertyColumn>
+    <ActionColumn Title="Action">
+        <Space>
+            <SpaceItem><Button Danger OnClick="_ => StopEntry(context.Id, context.WorkflowId)"  OnClickStopPropagation="true">停止</Button></SpaceItem>
+            <SpaceItem><Button Type="@ButtonType.Primary"  OnClickStopPropagation="true">运行</Button></SpaceItem>
+        </Space>
+    </ActionColumn>
+</Table>

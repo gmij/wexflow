@@ -1,0 +1,33 @@
+﻿@page "/wexflow/manager"
+
+
+
+<Table @ref="table" TItem="Data.WorkflowInfo" @bind-SelectedRows="selectWfItem" DataSource="@workflowList" OnChange="OnChange"
+       Loading="@loading" ScrollY="1000px" ScrollBarWidth="2px" HidePagination EnableVirtualization>
+
+    <TitleTemplate>
+        <GridRow>
+            <GridCol Offset="16" Span="8" style="text-align:right;">
+                <Search Placeholder="Search Name" @bind-Value="searchString" OnSearch="()=> table?.ReloadData()" />
+            </GridCol>
+        </GridRow>
+    </TitleTemplate>
+    <ColumnDefinitions>
+        <PropertyColumn Property="c => c.Id"></PropertyColumn>
+        <PropertyColumn Property="c => c.Name"></PropertyColumn>
+        <PropertyColumn Property="c => c.LaunchType"></PropertyColumn>
+        <PropertyColumn Property="c => c.IsEnabled">
+            <Switch @bind-Value="@context.IsEnabled"></Switch>
+        </PropertyColumn>
+        <PropertyColumn Property="c => c.IsApproval">
+            <Checkbox @bind-Checked="context.IsApproval" Disabled></Checkbox>
+        </PropertyColumn>
+        <PropertyColumn Property="c => c.Description"></PropertyColumn>
+        <ActionColumn Title="Action">
+            <Space>
+                <SpaceItem><Button Danger OnClick="_ => OpenDesign(context.Id)" OnClickStopPropagation="true">设计</Button></SpaceItem>
+                <SpaceItem><Button Type="@ButtonType.Primary" OnClick="_ => StartWf(context.Id)" OnClickStopPropagation="true">运行</Button></SpaceItem>
+            </Space>
+        </ActionColumn>
+    </ColumnDefinitions>
+</Table>

@@ -8,6 +8,7 @@ namespace Wexflow.BlazorServer.Data
         public MapProfile()
         {
             this.CreateMap<Core.Db.User, User>().ReverseMap();
+            this.CreateMap<Core.Db.Entry, Entry>().ForMember(entry => entry.Id, opt => opt.MapFrom(o => o.JobId)).ReverseMap();
         }
 
 

@@ -1,0 +1,30 @@
+﻿@page "/wexflow/history"
+
+<Table TItem="Data.HistoryEntry" Total="_count" OnPageSizeChange="OnPageIndexChange" OnPageIndexChange="OnPageIndexChange" DataSource="EntryList">
+    <TitleTemplate>
+        <GridRow>
+            <GridCol Offset="16" Span="8" style="text-align:right;">
+                <RangePicker AllowClear=false TValue="DateTime[]" @bind-Value="rangeTimes" />
+                <Button OnClick="SearchHistory">Search</Button>
+            </GridCol>
+        </GridRow>
+    </TitleTemplate>
+    <ColumnDefinitions>
+        <PropertyColumn Property="c => c.Status">
+            <img src="images/@context.Status-small.png" />
+        </PropertyColumn>
+        <PropertyColumn Property="c => c.StatusDate"></PropertyColumn>
+        <PropertyColumn Property="c => c.Id"></PropertyColumn>
+        <PropertyColumn Property="c => c.Name"></PropertyColumn>
+        <PropertyColumn Property="c => c.LaunchType"></PropertyColumn>
+        <PropertyColumn Property="c => c.Description"></PropertyColumn>
+
+        <ActionColumn>
+            <Button OnClick=" _ => ShowHisLog(context.Id)">日志</Button>
+        </ActionColumn>
+    </ColumnDefinitions>
+</Table>
+
+<Modal Title="执行日志" Visible="@_visible" Width="700" Centered=true OnOk="ClearContent" OnCancel="ClearContent">
+    @(new MarkupString(_logDetail));
+</Modal>

@@ -10,8 +10,8 @@ namespace Wexflow.BlazorServer.Controllers
     {
 
         protected readonly WexflowService _service;
-        private readonly IServiceProvider sp;
-        private readonly IMapper mapper;
+        protected readonly IServiceProvider sp;
+        protected readonly IMapper mapper;
 
         public WexflowControllerBase(WexflowService service)
         {
@@ -34,6 +34,8 @@ namespace Wexflow.BlazorServer.Controllers
                 var state = await asp.GetAuthenticationStateAsync();
                 var username = state.User.Identity?.Name;
                 var user = _service.Engine.GetUser(username);
+                
+                
                 return mapper.Map<User>(user);
             }
             else

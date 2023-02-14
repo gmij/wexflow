@@ -17,6 +17,9 @@ namespace Wexflow.BlazorServer.Controllers
         {
         }
 
+        protected long _total;
+
+
         [HttpGet("searchHistoryEntriesByPageOrderBy")]
         public IEnumerable<HistoryEntry> SearchHistoryEntriesByPageOrderBy(EntryQueryModel queryModel)
         {
@@ -37,6 +40,26 @@ namespace Wexflow.BlazorServer.Controllers
                    StatusDate = e.StatusDate.ToString(_service.Config["DateTimeFormat"])
                });
         }
+
+        [HttpGet("historyEntriesCountByDate")]
+
+        public long GetHistoryEntriesCountByDate(EntryQueryModel queryModel)
+        {
+            return _service.Engine.GetHistoryEntriesCount(queryModel.Keyword, queryModel.From, queryModel.To);
+        }
+
+        [HttpGet("historyEntryStatusDateMin")]
+        public DateTime GetHistoryEntryStatusDateMin()
+        {
+            return _service.Engine.GetHistoryEntryStatusDateMin();
+        }
+
+        [HttpGet("historyEntryStatusDateMax")]
+        public DateTime GetHistoryEntryStatusDateMax()
+        {
+            return _service.Engine.GetHistoryEntryStatusDateMax();
+        }
+
 
         [HttpGet("historyEntryLogs")]
 

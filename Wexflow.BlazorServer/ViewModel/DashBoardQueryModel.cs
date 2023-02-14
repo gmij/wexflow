@@ -14,6 +14,6 @@ namespace Wexflow.BlazorServer.ViewModel
 
         public int PageSize { get; set; } = 10;
 
-        public EntryOrderBy OrderField { get; set; } = EntryOrderBy.StatusDateAscending;
+        public EntryOrderBy OrderField { get; set; } = EntryOrderBy.StatusDateDescending;
     }
 }

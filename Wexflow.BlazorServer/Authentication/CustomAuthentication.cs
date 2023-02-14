@@ -29,6 +29,7 @@ namespace Wexflow.BlazorServer.Authentication
 
         protected override Task<bool> ValidateAuthenticationStateAsync(AuthenticationState authenticationState, CancellationToken cancellationToken)
         {
+            
             return Task.FromResult(true);
         }
 

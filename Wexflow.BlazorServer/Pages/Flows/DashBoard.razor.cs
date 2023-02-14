@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Wexflow.BlazorServer.Controllers;
 
-namespace Wexflow.BlazorServer.Pages
+namespace Wexflow.BlazorServer.Pages.Flows
 {
     public partial class DashBoard 
     {

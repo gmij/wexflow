@@ -35,7 +35,7 @@ namespace Wexflow.BlazorServer.Controllers
 
             //  todo. 当前用户为空，应该要踢回登录页面。
             if (user == null)
-                return workflows;
+                throw new ArgumentNullException(nameof(user), "请登录");
 
             if (user.UserProfile == Data.UserProfile.SuperAdministrator)
             {

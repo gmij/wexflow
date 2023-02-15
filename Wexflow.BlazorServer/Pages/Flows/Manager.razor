@@ -6,8 +6,11 @@
        Loading="@loading" ScrollY="1000px" ScrollBarWidth="2px" HidePagination EnableVirtualization>
 
     <TitleTemplate>
-        <GridRow>
-            <GridCol Offset="16" Span="8" style="text-align:right;">
+        <GridRow >
+            <GridCol Flex="2">
+                <Switch @bind-Checked="showAll" Size="large" CheckedChildren="所有流程" UnCheckedChildren="仅审批流程" OnChange="_ => table?.ReloadData()"></Switch>
+            </GridCol>
+            <GridCol Flex="3">
                 <Search Placeholder="Search Name" @bind-Value="searchString" OnSearch="()=> table?.ReloadData()" />
             </GridCol>
         </GridRow>

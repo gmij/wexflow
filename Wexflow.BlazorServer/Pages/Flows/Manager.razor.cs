@@ -20,6 +20,8 @@ namespace Wexflow.BlazorServer.Pages.Flows
 
         protected string searchString = string.Empty;
 
+        protected bool showAll = true;
+
         protected IEnumerable<WorkflowInfo> workflowList { get; set; }
 
         protected IEnumerable<WorkflowInfo> selectWfItem { get; set; }
@@ -30,16 +32,22 @@ namespace Wexflow.BlazorServer.Pages.Flows
         protected async override void OnInitialized()
         {
             base.OnInitialized();
-            workflowList = await manager.Search();
-            loading = false;
-
-            StateHasChanged();
+            BindData();
         }
 
-        async void OnChange(QueryModel<WorkflowInfo> query)
+        void OnChange(QueryModel<WorkflowInfo> query)
+        {
+            BindData();
+        }
+
+        async void BindData()
         {
             loading = true;
             workflowList = await manager.Search(searchString ?? "");
+            if (workflowList.Any() && !showAll) 
+            {
+                workflowList = workflowList.Where(wf => wf.IsApproval).ToList();
+            }
             loading = false;
             StateHasChanged();
         }

@@ -8,7 +8,8 @@
         Failed,
         Warning,
         Disabled,
-        Stopped
+        Stopped,
+        Rejected
     }
 
     public class Entry

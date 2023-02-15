@@ -2,15 +2,19 @@
 
 
 
-<Table TItem="Data.Entry" DataSource="@entryList" Loading="@loading">
+<Table @ref="table" TItem="Data.Entry" DataSource="@entryList" Loading="@loading">
     <PropertyColumn Property="c => c.Id"></PropertyColumn>
     <PropertyColumn Property="c => c.StatusDate"></PropertyColumn>
     <PropertyColumn Property="c => c.Name"></PropertyColumn>
     <PropertyColumn Property="c => c.Description"></PropertyColumn>
     <ActionColumn Title="Action">
         <Space>
-            <SpaceItem><Button Danger OnClick="_ => StopEntry(context.Id, context.WorkflowId)"  OnClickStopPropagation="true">停止</Button></SpaceItem>
-            <SpaceItem><Button Type="@ButtonType.Primary"  OnClickStopPropagation="true">运行</Button></SpaceItem>
+            <SpaceItem><Button Danger OnClick="_ => StopEntry(context.Id, context.WorkflowId)" OnClickStopPropagation="true">停止</Button></SpaceItem>
+            @if (IsApproval(context.WorkflowId))
+            {
+                <SpaceItem><Button Type="@ButtonType.Primary" OnClick="_ => Accept(context.Id, context.WorkflowId)" OnClickStopPropagation="true">同意</Button></SpaceItem>
+                <SpaceItem><Button Type="@ButtonType.Text" OnClick="_ => Reject(context.Id, context.WorkflowId)" OnClickStopPropagation="true" Danger>拒绝</Button></SpaceItem>
+            }
         </Space>
     </ActionColumn>
 </Table>

@@ -69,7 +69,6 @@ namespace Wexflow.BlazorServer.Pages.Flows
                 InvokeAsync( () =>
                 {
                     entryList =  manager.Jobs();
-                    Console.WriteLine($"xxx{entryList.Count()}");
                     StateHasChanged();
                 });
                 

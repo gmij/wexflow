@@ -1,3 +1,5 @@
+本项目基于wexflow，改为使用Blazor.Server做的展示层，UI框架使用的是AntD.Blazor。
+
 [![Build Status](https://aelassas.visualstudio.com/wexflow/_apis/build/status/aelassas.wexflow?branchName=main)](https://aelassas.visualstudio.com/wexflow/_build/latest?definitionId=3&branchName=main) [![GitHub all releases](https://img.shields.io/github/downloads/aelassas/wexflow/total?color=32c955&logo=github)](https://wexflow.github.io/release-stats/)
 
 <!--
